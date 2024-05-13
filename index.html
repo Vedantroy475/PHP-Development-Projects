@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Management System</title>
+    <style>
+        /* CSS styles for the forms */
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>User Registration</h2>
+    <form method="post" action="user_management.php">
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <input type="hidden" name="csrf_token" value="<?php echo uniqid(); ?>"> <!-- CSRF token -->
+        <button type="submit" name="register">Register</button>
+    </form>
+
+    <h2>User Login</h2>
+    <form method="post" action="user_management.php">
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <input type="hidden" name="csrf_token" value="<?php echo uniqid(); ?>"> <!-- CSRF token -->
+        <button type="submit" name="login">Login</button>
+    </form>
+</body>
+</html>
